@@ -54,7 +54,7 @@ export default function HistoryPage() {
             <BottonGroup>
                 <Link to="/">
                     <Button>
-                        Voltar
+                        ⬅️ Voltar
                     </Button>
                 </Link>
                 <Button $variant='danger' onClick={handleClearHistory}>

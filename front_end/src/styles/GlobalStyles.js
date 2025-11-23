@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
         justify-content: center;
         align-items: center;
         margin-top: 50px;     
-        background-color: #ccc; 
+        background-color: #fff; 
         color: white;       
     }
 

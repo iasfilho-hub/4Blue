@@ -26,7 +26,7 @@ export default function MessageInput({ activeUser, onSend }) {
                 value={text}
                 onChange={e => setText(e.target.value)}
             />
-            <Button type="submit">Enviar</Button>
+            <Button type="submit"> Enviar➡️ </Button>
         </Form>
     );
 }

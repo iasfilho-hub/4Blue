@@ -32,5 +32,6 @@ export const MessageItem = styled.li`
     display: block;
     margin-top: 5px;
     color: #000;
+    
   }
 `

@@ -22,7 +22,7 @@ export default function HistoryList({ messages, loading }) {
                     <MessageItem key={m.id}>
                         <strong>Usuário {m.user}</strong>: {m.text}
                         <br />
-                        <em>{m.response}</em>
+                        <em> <b>4Blue:</b> {m.response}</em>
                     </MessageItem>
                 ))
             }
