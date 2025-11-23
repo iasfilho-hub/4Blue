@@ -3,14 +3,13 @@ import { buscarHistorico, limparHistorico } from "../../api/api";
 import {
     PageContainer,
     Title,
-    MessageList,
-    MessageItem,
     Header,
     BottonGroup
 } from "./styles";
 import { useLocation, Link } from "react-router-dom";
 import { Button } from "../../components/msgInput/styles";
 import logo from "../../assets/4blue-Logo.png"
+import HistoryList from "../../components/hstyList/HistoryList";
 
 
 export default function HistoryPage() {
@@ -36,7 +35,7 @@ export default function HistoryPage() {
         const ok = confirm(`Apagar TODO o histórico do usuário ${user}?`);
         if (!ok) return;
 
-        const res = await limparHistorico(user);
+        await limparHistorico(user);
         await load();
     }
 
@@ -50,30 +49,16 @@ export default function HistoryPage() {
 
             <Title>Histórico Completo - Usuário {user}</Title>
 
-            <MessageList>
-                {loading ? (
-                    <p>Carregando...</p>
-                ) : messages.length === 0 ? (
-                    <p>Nenhuma mensagem encontrada.</p>
-                ) : (
-                    messages.map((m) => (
-                        <MessageItem key={m.id}>
-                            <strong>{m.user}</strong>: {m.text}
-                            <br />
-                            <em>{m.response}</em>
-                        </MessageItem>
-                    ))
-                )}
-            </MessageList>
+            <HistoryList messages={messages} loading={loading} />
 
             <BottonGroup>
                 <Link to="/">
-                    <Button style={{ marginBottom: "20px" }}>
+                    <Button>
                         Voltar
                     </Button>
                 </Link>
                 <Button $variant='danger' onClick={handleClearHistory}>
-                    🗑️ Limpar Histórico
+                    🗑️ Limpar
                 </Button>
             </BottonGroup>
 

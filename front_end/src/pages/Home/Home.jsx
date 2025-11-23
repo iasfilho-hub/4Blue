@@ -3,7 +3,7 @@ import UserSelector from "../../components/userSelector/UserSelector"
 import MessageInput from "../../components/msgInput/MessageInput"
 import MessageList from "../../components/msgList/MessageList"
 import { Link } from "react-router-dom";
-import { AppContainer, Header, Main } from "./styles"
+import { AppContainer, ChatContainer, Header, Main, MessageArea } from "./styles"
 import { Button } from "../../components/msgInput/styles";
 import logo from "../../assets/4blue-Logo.png";
 
@@ -27,12 +27,18 @@ export default function Home() {
       <AppContainer>
         <UserSelector activeUser={activeUser} setActiveUser={setActiveUser} />
 
-        <MessageList messages={messages} />
+        <ChatContainer>
 
-        <MessageInput activeUser={activeUser} onSend={handleNewMessage} />
+          <MessageArea>
+            <MessageList messages={messages} />
+          </MessageArea>
+
+
+          <MessageInput activeUser={activeUser} onSend={handleNewMessage} />
+        </ChatContainer>
 
         <Link to="/historico" state={{ user: activeUser }}>
-          <Button style={{ marginBottom: "20px" }}>
+          <Button>
             📜 Ver Histórico Completo
           </Button>
         </Link>

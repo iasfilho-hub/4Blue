@@ -10,7 +10,7 @@ export default function MessageList({ messages }) {
             <List>
                 {messages.map((m) => (
                     <Item key={m.id}>
-                        <strong>Você:</strong> {m.text}
+                        <strong>Usuário {m.user}:</strong> {m.text}
                         <br />
                         <strong>4Blue:</strong> {m.response}
                     </Item>

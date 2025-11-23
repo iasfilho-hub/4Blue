@@ -7,8 +7,7 @@ export const Container = styled.div`
 `
 
 export const Title = styled.h3`
-  font-size: 22px;
-  margin-bottom: 10px;
+  font-size: 18px;
   color: #000;
 `
 
