@@ -71,6 +71,39 @@ O frontend ficará disponível em:
 
 ---
 
+## 🧠 Decisões Técnicas
+
+### 🎯 Backend (Django)
+
+#### 1. Estrutura dos Models:
+   Foi criado um único model chamado Message, representando cada mensagem enviada no chat.
+   Ele contém os campos user, text, response e timestamp.
+   Essa abordagem simples permite armazenar o histórico completo e filtrar mensagens por usuário de forma eficiente.
+
+#### 2. API REST:
+A API foi construída com o Django REST Framework, permitindo endpoints para envio e listagem de mensagens.
+As respostas mockadas (“Obrigado pelo contato...”) são geradas diretamente na view, simulando um comportamento de IA.
+
+#### 3. Separação de Responsabilidades:
+O backend se limita à persistência e lógica da API, deixando toda a interface e experiência do usuário sob responsabilidade do React.
+
+### ⚛️ Frontend (React)
+
+#### 1. Gerenciamento de Estado:
+O estado do chat é controlado com useState e useEffect.
+Cada usuário (A ou B) mantém seu histórico separado, e o React atualiza a interface dinamicamente conforme o backend responde.
+
+#### 2. Componentização:
+O projeto foi dividido em componentes reutilizáveis (UserSelector, MessageInput, MessageList, HistoryList) para facilitar manutenção e escalabilidade.
+
+#### 3. Estilização:
+Foi adotado o Styled Components para manter o CSS encapsulado em cada componente, garantindo consistência visual e permitindo temas dinâmicos no futuro.
+
+#### 4. Integração com o Backend:
+O frontend se comunica com o backend Django via fetch API (em api.js), mantendo a base de código limpa e desacoplada.
+
+---
+
 ### 🧠 Funcionalidades
 
 ✅ Envio de mensagens entre “Usuário A” e “Usuário B” <br>
